@@ -1,28 +1,24 @@
 # Commit messages guide
 
-[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/RomuloOliveira)
+Przewodnik mający na celu ukazanie, jak ważne są commit messages, oraz jak pisać je lepiej.
 
-A guide to understanding the importance of commit messages and how to write them well.
+Ma pomóc w zrozumieniu co to są commity, dlaczego ważne jest ich dobre opisanie, oraz pokazać dobre praktyki i kilka poraz w planowaniu i pisaniu historii zmian.
 
-It may help you to learn what a commit is, why it is important to write good messages, best practices and some tips to plan and (re)write a good commit history.
+## W innych językach
 
-## Available languages
+- [angielski](README.md)
+- [portugalski](README_pt-BR.md)
+- [niemiecki](README_de-DE.md)
+- [hiszpański](README_es-AR.md)
+- [włoski](README_it-IT.md)
 
-- [English](README.md)
-- [Português](README_pt-BR.md)
-- [Deutsch](README_de-DE.md)
-- [Español](README_es-AR.md)
-- [Italiano](README_it-IT.md)
-- [Polish](README_pl-PL.md)
+## Co to jest "commit"?
 
+W prostych słowach, commit jest _migawką_ twoich plików lokalnych, zapisanych w twoim lokalnym repozytorium.
+Wbrew temu co uważają niektórzy, [git nie przechowuje wyłącznie różnic pomiędzy kolejnymi wersjami plików - przechowuje pełną wersję wszystkich plików](https://git-scm.com/book/pl/v2/Pierwsze-kroki-Podstawy-Git).
+Dla plików, które nie uległy zmianie między commitami, git używa linku do poprzedniej (identycznej) wersji pliku, którą już przechowuje.
 
-## What is a "commit"?
-
-In simple terms, a commit is a _snapshot_ of your local files, written in your local repository.
-Contrary to what some people think, [git doesn't store only the difference between the files, it stores a full version of all files](https://git-scm.com/book/eo/v1/Ekkomenci-Git-Basics#Snapshots,-Not-Differences).
-For files that didn't change from one commit to another, git stores just a link to the previous identical file that is already stored.
-
-The image below shows how git stores data over time, in which each "Version" is a commit:
+Obrazek poniżej pokazuje, jak git przechowuje dane w czasie, gdzie każda "wersja" jest commit-em:
 
 ![](https://i.stack.imgur.com/AQ5TG.png)
 
@@ -441,3 +437,4 @@ Any kind of help would be appreciated. Example of topics that you can help me wi
 - [A Note About Git Commit Messages](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
 - [Merging vs. Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
 - [Pro Git Book - Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
+
