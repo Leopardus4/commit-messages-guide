@@ -2,7 +2,7 @@
 
 Przewodnik mający na celu ukazanie, jak ważne są commit messages, oraz jak pisać je lepiej.
 
-Ma pomóc w zrozumieniu co to są commity, dlaczego ważne jest ich dobre opisanie, oraz pokazać dobre praktyki i kilka poraz w planowaniu i pisaniu historii zmian.
+Ma pomóc w zrozumieniu co to są commity, dlaczego ważne jest ich dobre opisanie, oraz pokazać dobre praktyki i kilka porad w planowaniu i tworzeniu historii zmian.
 
 ## W innych językach
 
@@ -15,97 +15,98 @@ Ma pomóc w zrozumieniu co to są commity, dlaczego ważne jest ich dobre opisan
 ## Co to jest "commit"?
 
 W prostych słowach, commit jest _migawką_ twoich plików lokalnych, zapisanych w twoim lokalnym repozytorium.
-Wbrew temu co uważają niektórzy, [git nie przechowuje wyłącznie różnic pomiędzy kolejnymi wersjami plików - przechowuje pełną wersję wszystkich plików](https://git-scm.com/book/pl/v2/Pierwsze-kroki-Podstawy-Git).
+Wbrew przekonaniom niektórych, [git nie przechowuje wyłącznie różnic pomiędzy kolejnymi wersjami plików - przechowuje pełną wersję wszystkich plików](https://git-scm.com/book/pl/v2/Pierwsze-kroki-Podstawy-Git).
 Dla plików, które nie uległy zmianie między commitami, git używa linku do poprzedniej (identycznej) wersji pliku, którą już przechowuje.
 
 Obrazek poniżej pokazuje, jak git przechowuje dane w czasie, gdzie każda "wersja" jest commit-em:
 
 ![](https://i.stack.imgur.com/AQ5TG.png)
 
-## Why are commit messages important?
+## Czemu commit messages są ważne?
 
-- To speed up and streamline code reviews
-- To help in the understanding of a change
-- To explain "the whys" that cannot be described only with code
-- To help future maintainers figure out why and how changes were made, making troubleshooting and debugging easier
+- aby przyspieszyć przeglądy kodu
+- aby pomóc w zrozumieniu wprowadzonej zmiany
+- aby wyjaśnić te kwestie, których nie da się opisać w kodzie
+- aby pomóc w utrzymaniu kodu w przyszłości, ukazując czemu i jakich zmian dokonano.
 
-To maximize those outcomes, we can use some good practices and standards described in the next section.
+W celu uzyskania lepszych rezultatów, możesz skorzystać z kilku "dobrych praktyk" i wzorów
 
-## Good practices
+## Dobre praktyki
 
-These are some practices collected from my experiences, internet articles, and other guides. If you have others (or disagree with some) feel free to open a Pull Request and contribute.
+Kilka użytecznych wskazówek zebranych z _my experiences, internet articles, and other guides_. Jeśli znasz inne, podziel się nimi - zachęcamy do pull requestów.
 
-### Use imperative form
+### Używaj trybu rozkazującego
+
+Dotyczy to szczególnie historii zmian tworzonej w języku angielskim.
 
 ```
-# Good
+# Dobrze
 Use InventoryBackendPool to retrieve inventory backend
 ```
 
 ```
-# Bad
+# Źle
 Used InventoryBackendPool to retrieve inventory backend
 ```
 
-_But why use the imperative form?_
+_Ale czemu tryb rozkazujący?_
 
-A commit message describes what the referenced change actually **does**, its effects, not what was done.
+Commit message opisuje, co wprowadzana zmiana **robi**, jej efekty, a nie co zostało zrobione (~~czas przeszły~~).
 
-[This excellent article from Chris Beams](https://chris.beams.io/posts/git-commit/) gives us a simple sentence that can be used to help us write better commit messages in imperative form:
-
+[Ten artykuł Chrisa Beams'a (en)](https://chris.beams.io/posts/git-commit/) podaje prostą frazę, która może być używana by pomóc pisać lepsze commit messages w trybie rozkazującym:
 ```
 If applied, this commit will <commit message>
 ```
 
-Examples:
+Przykłady:
 
 ```
-# Good
+# Dobrze
 If applied, this commit will use InventoryBackendPool to retrieve inventory backend
 ```
 
 ```
-# Bad
+# Źle
 If applied, this commit will used InventoryBackendPool to retrieve inventory backend
 ```
 
-### Capitalize the first letter
+### Zaczynaj wielką literą
 
 ```
-# Good
+# Dobrze
 Add `use` method to Credit model
 ```
 
 ```
-# Bad
+# Źle
 add `use` method to Credit model
 ```
 
-The reason that the first letter should be capitalized is to follow the grammar rule of using capital letters at the beginning of sentences.
+Pierwsza litera powinna być _wielka_, ponieważ jest to zgodne z zasadami gramatyki.
 
-The use of this practice may vary from person to person, team to team, or even from language to language.
-Capitalized or not, an important point is to stick to a single standard and follow it.
+Stosowanie (lub nie) tej reguły może się różnić w zależości od osoby / zespołu / języka.
+Ważne jest jednak ustalić jeden standard, którego wszyscy w zespole będą się trzymać.
 
-### Try to communicate what the change does without having to look at the source code
+### Staraj się przekazać, co robi dana zmiana bez potrzeby sięgania do kodu.
 
 ```
-# Good
+# Dobrze
 Add `use` method to Credit model
 
 ```
 
 ```
-# Bad
+# Źle
 Add `use` method
 ```
 
 ```
-# Good
+# Dobrze
 Increase left padding between textbox and layout frame
 ```
 
 ```
-# Bad
+# Źle
 Adjust css
 ```
 
@@ -114,7 +115,7 @@ It is useful in many scenarios (e.g. multiple commits, several changes and refac
 ### Use the message body to explain "why", "for what", "how" and additional details
 
 ```
-# Good
+# Dobrze
 Fix method name of InventoryBackend child classes
 
 Classes derived from InventoryBackend were not
@@ -125,7 +126,7 @@ incorrectly.
 ```
 
 ```
-# Good
+# Dobrze
 Serialize and deserialize credits to json in Cart
 
 Convert the Credit instances to dict for two main reasons:
@@ -136,7 +137,7 @@ Convert the Credit instances to dict for two main reasons:
 ```
 
 ```
-# Good
+# Dobrze
 Add `use` method to Credit
 
 Change from namedtuple to class because we need to
@@ -151,7 +152,7 @@ Characters like `-`, `*` and \` are elements that improve readability.
 ### Avoid generic messages or messages without any context
 
 ```
-# Bad
+# Źle
 Fix this
 
 Fix stuff
@@ -174,21 +175,21 @@ For project owners: Choose a language and write all commit messages using that l
 For contributors: Write your commit messages using the same language as the existing commit history.
 
 ```
-# Good
+# Dobrze
 ababab Add `use` method to Credit model
 efefef Use InventoryBackendPool to retrieve inventory backend
 bebebe Fix method name of InventoryBackend child classes
 ```
 
 ```
-# Good (Portuguese example)
+# Dobrze (Portuguese example)
 ababab Adiciona o método `use` ao model Credit
 efefef Usa o InventoryBackendPool para recuperar o backend de estoque
 bebebe Corrige nome de método na classe InventoryBackend
 ```
 
 ```
-# Bad (mixes English and Portuguese)
+# Źle (mixes English and Portuguese)
 ababab Usa o InventoryBackendPool para recuperar o backend de estoque
 efefef Add `use` method to Credit model
 cdcdcd Agora vai
@@ -283,10 +284,10 @@ pick e9549cf Add a section of Available languages
 pick ec003aa Add "What is a commit" section"
 pick bbe5361 Add source referencing as a point of help wanted
 pick b71115e Add a section explaining the importance of commit messages
-pick 669bf2b Add "Good practices" section
+pick 669bf2b Add "Dobrze practices" section
 pick d8340d7 Add capitalization of first letter practice
-pick 925f42b Add a practice to encourage good descriptions
-pick be05171 Add a section showing good uses of message body
+pick 925f42b Add a practice to encourage Dobrze descriptions
+pick be05171 Add a section showing Dobrze uses of message body
 pick d115bb8 Add generic messages and column limit sections
 pick 1693840 Add a section about language consistency
 pick 80c5f47 Add commit message template
@@ -316,7 +317,7 @@ pick 9b81c72 Add "Rebase vs Merge" section
 #### fixup
 
 Use it to clean up commits easily and without needing a more complex rebase.
-[This article](http://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html) has very good examples of how and when to do it.
+[This article](http://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html) has very Dobrze examples of how and when to do it.
 
 ### cherry-pick
 
@@ -342,7 +343,7 @@ index 7b45277..6b1993c 100644
 +++ b/README.md
 @@ -186,10 +186,13 @@ bebebe Corrige nome de método na classe InventoryBackend
  ``
- # Bad (mixes English and Portuguese)
+ # Źle (mixes English and Portuguese)
  ababab Usa o InventoryBackendPool para recuperar o backend de estoque
 -efefef Add `use` method to Credit model
  cdcdcd Agora vai
@@ -375,7 +376,7 @@ Split into 2 hunks.
 ```diff
 @@ -186,7 +186,6 @@
  ``
- # Bad (mixes English and Portuguese)
+ # Źle (mixes English and Portuguese)
  ababab Usa o InventoryBackendPool para recuperar o backend de estoque
 -efefef Add `use` method to Credit model
  cdcdcd Agora vai
