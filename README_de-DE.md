@@ -17,6 +17,7 @@ Auch wenn das eine Übersetzung darstellen soll, empfiehlt es sich, alle Commit-
 - [Deutsch](README_de-DE.md)
 - [Spanische](README_es-AR.md)
 - [Italiano](README_it-IT.md)
+- [Polnisch](README_pl-PL.md)
 
 ## Was ist ein "Commit"?
 
@@ -33,7 +34,7 @@ Die folgende Grafik zeigt wie Git die Daten mit der Zeit speichert. Jede "Versio
 - Um Code-Reviews zu beschleunigen und zu vereinfachen
 - Um die erzielte Änderung besser verstehen zu können
 - Um _die_ Gründe zu erläutern die so nicht aus dem Code hervorgehen (Grundsatzentscheidungen)
-- Um zukünftigen Entwicklern zu helfen zu verstehen wie und warum Änderungen gemacht wurden – was die Fehlersuche und -behebung vereinfacht
+- Um zukünftigen Entwicklern zu helfen zu verstehen wie und warum Änderungen gemacht wurden – was die Fehlersuche und -behebung vereinfacht
 
 Um diese und noch mehr Vorteile möglichst effizient nutzen zu können, sollten wir uns an die folgenden Praktiken und Standards halten.
 
