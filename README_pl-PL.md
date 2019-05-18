@@ -33,9 +33,9 @@ W celu uzyskania lepszych rezultatów, możesz skorzystać z kilku "dobrych prak
 
 ## Dobre praktyki
 
-Kilka użytecznych wskazówek zebranych z _my experiences, internet articles, and other guides_. Jeśli znasz inne, podziel się nimi - zachęcamy do pull requestów.
+Kilka użytecznych wskazówek zebranych z _"my experiences, internet articles, and other guides"_. Jeśli znasz inne, podziel się nimi - zachęcamy do pull requestów.
 
-### Używaj trybu rozkazującego
+### Używaj czasu teraźniejszego
 
 Dotyczy to szczególnie historii zmian tworzonej w języku angielskim.
 
@@ -49,11 +49,11 @@ Use InventoryBackendPool to retrieve inventory backend
 Used InventoryBackendPool to retrieve inventory backend
 ```
 
-_Ale czemu tryb rozkazujący?_
+_Ale czemu czas teraźniejszy?_
 
 Commit message opisuje, co wprowadzana zmiana **robi**, jej efekty, a nie co zostało zrobione (~~czas przeszły~~).
 
-[Ten artykuł Chrisa Beams'a (en)](https://chris.beams.io/posts/git-commit/) podaje prostą frazę, która może być używana by pomóc pisać lepsze commit messages w trybie rozkazującym:
+[Ten artykuł Chrisa Beams'a](https://chris.beams.io/posts/git-commit/) podaje prostą frazę, która może być używana by pomóc pisać lepsze commit messages w trybie rozkazującym:
 ```
 If applied, this commit will <commit message>
 ```
@@ -110,9 +110,9 @@ Increase left padding between textbox and layout frame
 Adjust css
 ```
 
-It is useful in many scenarios (e.g. multiple commits, several changes and refactors) to help reviewers understand what the committer was thinking.
+Jest to użyteczne w wielu przypadkach (np. wiele commitów, kilkukrotne zmiany i przeróbki) w późniejszym zrozumieniu, co commitujący miał na myśli.
 
-### Use the message body to explain "why", "for what", "how" and additional details
+### Używaj rozwinięcia wiadomości aby wyjaśnić "po co", "jak" i "dlaczego"
 
 ```
 # Dobrze
@@ -144,12 +144,12 @@ Change from namedtuple to class because we need to
 setup a new attribute (in_use_amount) with a new value
 ```
 
-The subject and the body of the messages are separated by a blank line.
-Additional blank lines are considered as a part of the message body.
+Nagłówek oraz rozwinięcie wiadomości są oddzielane pustą linią.
+Późniejsze puste linie są traktowane jako część rozwinięcia.
 
-Characters like `-`, `*` and \` are elements that improve readability.
+Znaki `-`, `*` oraz \` dodatkowo poprawiają czytelność.
 
-### Avoid generic messages or messages without any context
+### Unikaj ogólnych wiadomości oraz wiadomości bez żadnego kontekstu
 
 ```
 # Źle
@@ -164,15 +164,17 @@ Change stuff
 Adjust css
 ```
 
-### Limit the number of characters
+### Ogranicz liczbę znaków
 
-[It's recommended](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines) to use a maximum of 50 characters for the subject and 72 for the body.
+[Zaleca się](https://git-scm.com/book/pl/v1/Rozproszony-Git-Wgrywanie-zmian-do-projektu#Wskaz%C3%B3wki-wgrywania-zmian) używać maksymalnie 50 znaków w nagłówku i do 72 w rozwinięciu.
 
-### Keep language consistency
 
-For project owners: Choose a language and write all commit messages using that language. Ideally, it should match the code comments, default translation locale (for localized projects), etc.
+### Trzymaj się konsekwentnie języka
 
-For contributors: Write your commit messages using the same language as the existing commit history.
+Dla menedżerów projektu: Wybierz język, w którym będą pisane wszystkie commit messages.
+Najlepiej, jeśli będzie zgodny z komentarzami w kodzie, domyślnymi ustawieniami regionalnymi (dla lokalnych projektów), itp.
+
+Dla programistów: Pisz własne commit messages używając tego języka, w którym do tej pory jest tworzona historia zmian.
 
 ```
 # Dobrze
@@ -182,51 +184,58 @@ bebebe Fix method name of InventoryBackend child classes
 ```
 
 ```
-# Dobrze (Portuguese example)
-ababab Adiciona o método `use` ao model Credit
-efefef Usa o InventoryBackendPool para recuperar o backend de estoque
-bebebe Corrige nome de método na classe InventoryBackend
+# Dobrze
+ababab Dodanie metody `use` do modelu Credit
+efefef Użycie InventoryBackendPool aby naprawić backend inwentarza
 ```
 
 ```
-# Źle (mixes English and Portuguese)
-ababab Usa o InventoryBackendPool para recuperar o backend de estoque
-efefef Add `use` method to Credit model
-cdcdcd Agora vai
+# Źle (mieszany polski i angielski)
+ababab Dodanie metody `use` do modelu Credit
+efefef Use InventoryBackendPool to retrieve inventory backend
+cdcdcd Już działa
 ```
 
-### Template
+```
+# Źle (polski i łacina)
+ababab Dodanie metody `use` do modelu Credit
+efefef Dlaczego *********** ********* ************
+cdcdcd Naprawione
+```
 
-This is a template, [written originally by Tim Pope](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html), which appears in the [_Pro Git Book_](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project).
+### Szablon
+
+Poniżej wzór [napisany pierwotnie przez Tima Pope](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html), który pojawił się w [_Pro Git Book_](https://git-scm.com/book/pl/v1/Rozproszony-Git-Wgrywanie-zmian-do-projektu). ([EN](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project))
 
 ```
-Summarize changes in around 50 characters or less
 
-More detailed explanatory text, if necessary. Wrap it to about 72
-characters or so. In some contexts, the first line is treated as the
-subject of the commit and the rest of the text as the body. The
-blank line separating the summary from the body is critical (unless
-you omit the body entirely); various tools like `log`, `shortlog`
-and `rebase` can get confused if you run the two together.
+Krótki (50 znaków lub mniej) opis zmiany
 
-Explain the problem that this commit is solving. Focus on why you
-are making this change as opposed to how (the code explains that).
-Are there side effects or other unintuitive consequences of this
-change? Here's the place to explain them.
+Bardziej szczegółowy tekst jeżeli jest taka konieczność. Zawijaj
+wiersze po około 72 znakach. Czasami pierwsza linia jest traktowana
+jako temat wiadomości email, a reszta komentarza jako treść. Pusta
+linia oddzielająca opis od streszczenia jest konieczna (chyba że
+ominiesz szczegółowy opis kompletnie); narzędzia takie jak `rebase`
+mogą się pogubić jeżeli nie oddzielisz ich.
 
-Further paragraphs come after blank lines.
+Wyjaśnij problem, który rozwiązujesz tym commitem. Skup się na tym,
+czemu wprowadzasz tą zmianę, a nie jak (wyjaśnia to kod).
+Czy ta zmiana wywołuje jakieś efekty uboczne lub inne nieintuicyjne
+konsekwencje? Tu jest miejsce na wyjaśnienie.
 
- - Bullet points are okay, too
+Kolejne paragrafy przychodzą po pustej linii.
 
- - Typically a hyphen or asterisk is used for the bullet, preceded
-   by a single space, with blank lines in between, but conventions
-   vary here
+ - wypunktowania też są poprawne
 
-If you use an issue tracker, put references to them at the bottom,
-like this:
+ - zazwyczaj myślnik lub gwiazdka są używane do punktowania,
+   poprzedzone pojedynczym znakiem spacji, z pustą linią pomiędzy,
+   jednak zwyczaje mogą się tutaj różnić.
 
-Resolves: #123
-See also: #456, #789
+Jeśli używasz issue trackera, zamieść odniesienia do niego na dole,
+jak te:
+
+Naprawia: #123
+Zobacz też: #456, #789
 ```
 
 ## Rebase vs. Merge
@@ -317,7 +326,7 @@ pick 9b81c72 Add "Rebase vs Merge" section
 #### fixup
 
 Use it to clean up commits easily and without needing a more complex rebase.
-[This article](http://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html) has very Dobrze examples of how and when to do it.
+[This article](http://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html) has very good examples of how and when to do it.
 
 ### cherry-pick
 
@@ -414,15 +423,15 @@ Stage this hunk [y,n,q,a,d,/,K,j,J,g,e,?]?
 +- [A Note About Git Commit Messages](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
 ```
 
-## Other interesting stuff
+## Inne interesujące szpargały
 
 https://whatthecommit.com/
 
-## Like it?
+## Podobało się?
 
 [Say thanks!](https://saythanks.io/to/RomuloOliveira)
 
-## Contributing
+## Współpraca
 
 Any kind of help would be appreciated. Example of topics that you can help me with:
 
